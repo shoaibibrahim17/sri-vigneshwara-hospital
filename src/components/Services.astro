@@ -53,7 +53,7 @@ const departments: Department[] = [
 
 <section id="departments" class="bg-white" aria-labelledby="services-heading">
 	<div class="container-site section-pad lg:px-12">
-		<div class="mb-8 lg:mb-12">
+		<div class="mb-6 lg:mb-12">
 			<p class="label-caps text-text-muted">Our Departments</p>
 			<h2 id="services-heading" class="mt-2 text-text-dark">
 				Comprehensive Care for Your Family
@@ -67,7 +67,7 @@ const departments: Department[] = [
 						<a
 							href={d.href}
 							class:list={[
-								'group flex h-full min-h-[168px] flex-col rounded-xl p-3 transition-colors duration-150 sm:p-4 lg:min-h-[184px]',
+								'group flex h-full min-h-[156px] flex-col rounded-xl p-3 transition-colors duration-150 sm:p-4 lg:min-h-[184px]',
 								d.accent === 'teal' ? 'bg-ice hover:bg-primary-mid/15' : 'bg-maternity-soft hover:bg-maternity/20',
 							]}
 						>
@@ -79,11 +79,11 @@ const departments: Department[] = [
 								loading="lazy"
 								decoding="async"
 								class:list={[
-									'size-14 object-contain object-center lg:size-[72px]',
+									'size-12 object-contain object-center lg:size-[72px]',
 									d.imageClass,
 								]}
 							/>
-							<h3 class="mt-2 text-[15px] font-semibold text-text-dark sm:text-base">{d.title}</h3>
+							<h3 class="mt-1.5 text-[14px] font-semibold text-text-dark sm:text-base">{d.title}</h3>
 							<p class="mt-0.5 text-[13px] leading-snug text-text-muted">{d.line}</p>
 							<span
 								class:list={[

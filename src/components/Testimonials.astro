@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
 
 			<!-- Featured quote — editorial left rule, no card -->
 			<figure class="max-w-[680px] border-l-2 border-maternity pl-5 lg:pl-7">
-				<blockquote class="font-heading text-xl leading-snug text-text-dark italic sm:text-2xl lg:text-[27px]">
+				<blockquote class="font-heading text-lg leading-snug text-text-dark italic sm:text-2xl lg:text-[27px]">
 					&ldquo;{featured.quote}&rdquo;
 				</blockquote>
 				<figcaption class="mt-3 text-xs text-text-muted">
@@ -55,11 +55,11 @@ const testimonials: Testimonial[] = [
 
 		<!-- Supporting reviews: swipe row on mobile, pair from md: -->
 		<ul
-			class="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[18px] pb-2 min-[400px]:px-5 md:container-site md:mt-10 md:grid md:snap-none md:grid-cols-2 md:overflow-visible md:pb-0 lg:gap-6 lg:px-12"
+			class="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[18px] pb-2 min-[400px]:px-5 md:container-site md:mt-10 md:grid md:snap-none md:grid-cols-2 md:overflow-visible md:pb-0 lg:gap-6 lg:px-12"
 		>
 			{
 				testimonials.map((t) => (
-					<li class="w-[80vw] max-w-[380px] shrink-0 snap-start rounded-xl border border-border-light p-5 md:w-auto md:max-w-none md:shrink">
+					<li class="w-[76vw] max-w-[350px] shrink-0 snap-start rounded-xl border border-border-light p-4 md:w-auto md:max-w-none md:shrink">
 						<div class="flex gap-0.5" role="img" aria-label="Rated 5 out of 5 stars">
 							{Array.from({ length: 5 }).map(() => (
 								<svg
