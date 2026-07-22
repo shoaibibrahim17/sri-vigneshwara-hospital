@@ -1,0 +1,88 @@
+---
+// Testimonials — light editorial: one featured quote (left border, no big
+// pink field, no oversized quote glyphs), then supporting reviews in a
+// horizontal swipe row (one fully visible, next peeking). White ground.
+// Author initials only (privacy, per CLAUDE.md).
+
+interface Testimonial {
+	quote: string;
+	author: string;
+	date: string;
+}
+
+const featured: Testimonial = {
+	quote:
+		'The doctors handled my delivery with such care. Clean facility and very supportive staff.',
+	author: 'S.K.',
+	date: 'Jan 2025',
+};
+
+const testimonials: Testimonial[] = [
+	{
+		quote: "Best orthopaedic treatment for my father's fracture. Professional and affordable.",
+		author: 'R.M.',
+		date: 'Dec 2024',
+	},
+	{
+		quote:
+			'Took my child for vaccination. Dr. Rao was very patient and explained everything clearly.',
+		author: 'A.P.',
+		date: 'Mar 2025',
+	},
+];
+---
+
+<section id="testimonials" class="bg-white" aria-labelledby="testimonials-heading">
+	<div class="section-pad">
+		<div class="container-site lg:px-12">
+			<div class="mb-7 lg:mb-10">
+				<p class="label-caps text-text-muted">Patient Stories</p>
+				<h2 id="testimonials-heading" class="mt-2 text-text-dark">What Our Patients Say</h2>
+			</div>
+
+			<!-- Featured quote — editorial left rule, no card -->
+			<figure class="max-w-[680px] border-l-2 border-maternity pl-5 lg:pl-7">
+				<blockquote class="font-heading text-xl leading-snug text-text-dark italic sm:text-2xl lg:text-[27px]">
+					&ldquo;{featured.quote}&rdquo;
+				</blockquote>
+				<figcaption class="mt-3 text-xs text-text-muted">
+					<span class="font-semibold tracking-[0.05em] uppercase">{featured.author}</span>
+					<span aria-hidden="true" class="mx-1.5">&middot;</span>
+					{featured.date}
+				</figcaption>
+			</figure>
+		</div>
+
+		<!-- Supporting reviews: swipe row on mobile, pair from md: -->
+		<ul
+			class="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[18px] pb-2 min-[400px]:px-5 md:container-site md:mt-10 md:grid md:snap-none md:grid-cols-2 md:overflow-visible md:pb-0 lg:gap-6 lg:px-12"
+		>
+			{
+				testimonials.map((t) => (
+					<li class="w-[80vw] max-w-[380px] shrink-0 snap-start rounded-xl border border-border-light p-5 md:w-auto md:max-w-none md:shrink">
+						<div class="flex gap-0.5" role="img" aria-label="Rated 5 out of 5 stars">
+							{Array.from({ length: 5 }).map(() => (
+								<svg
+									aria-hidden="true"
+									class="size-3.5 text-cta"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path d="M12 2l2.9 6.26 6.6.54-5 4.47 1.5 6.46L12 16.27 5.99 19.73l1.5-6.46-5-4.47 6.6-.54L12 2z" />
+								</svg>
+							))}
+						</div>
+						<blockquote class="mt-3 text-sm leading-relaxed text-text-body">
+							&ldquo;{t.quote}&rdquo;
+						</blockquote>
+						<footer class="mt-3 text-xs text-text-muted">
+							<span class="font-semibold tracking-[0.05em] uppercase">{t.author}</span>
+							<span aria-hidden="true" class="mx-1.5">&middot;</span>
+							{t.date}
+						</footer>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

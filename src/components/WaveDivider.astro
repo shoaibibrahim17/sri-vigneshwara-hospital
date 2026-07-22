@@ -1,0 +1,20 @@
+---
+// WaveDivider — gentle single-curve seam between sections (Reference 2 style).
+// `fill` = the colour of the section ABOVE; render at the top of the section below.
+
+interface Props {
+	fill: string;
+	class?: string;
+}
+
+const { fill, class: className = '' } = Astro.props;
+---
+
+<div aria-hidden="true" class:list={['leading-none', className]}>
+	<svg class="block h-8 w-full lg:h-12" viewBox="0 0 1440 48" preserveAspectRatio="none">
+		<path
+			fill={fill}
+			d="M0 0h1440v10c-220 26-450 36-720 30S220 14 0 26Z"
+		></path>
+	</svg>
+</div>

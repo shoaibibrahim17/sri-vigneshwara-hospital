@@ -1,0 +1,126 @@
+---
+// Doctors — mobile: horizontal snap carousel (~82vw cards, next card peeking);
+// desktop: two cards side by side. Left-aligned compact hierarchy —
+// initials treatment top-left (no "Photo soon" text), info, one action.
+// IMPORTANT: Doctor photo slots must be replaced ONLY with real,
+// hospital-approved photographs of the actual doctors — never generated,
+// stock, or unverified images.
+// UNVERIFIED (client to confirm): OBGYN name/qualifications, experience
+// figures, and exact consultation hours.
+
+interface Doctor {
+	name: string;
+	title: string;
+	experience: string;
+	timings: string;
+	bio: string;
+	accent: 'teal' | 'rose';
+	initials: string;
+	pending?: boolean;
+}
+
+const doctors: Doctor[] = [
+	{
+		name: 'Dr. Ravikanth Rao',
+		title: 'Paediatrician',
+		experience: '15+ Years Experience',
+		timings: 'Mon – Sat: 9:30 AM – 6:30 PM',
+		bio: 'Cares for newborns, infants and children — from vaccinations to everyday illnesses.',
+		accent: 'teal',
+		initials: 'RR',
+	},
+	{
+		name: 'Doctor details will be updated',
+		title: 'Obstetrics & Gynaecology',
+		experience: '',
+		timings: 'Mon – Sun: 11:00 AM – 5:00 PM',
+		bio: 'Our OBGYN specialist supports pregnancy, delivery and women’s health at every stage.',
+		accent: 'rose',
+		initials: 'OB',
+		pending: true,
+	},
+];
+---
+
+<section id="doctors" class="bg-white" aria-labelledby="doctors-heading">
+	<div class="section-pad">
+		<div class="container-site mb-7 lg:mb-12 lg:px-12">
+			<p class="label-caps text-text-muted">Our Doctors</p>
+			<h2 id="doctors-heading" class="mt-2 text-text-dark">Meet Our Specialists</h2>
+		</div>
+
+		<!-- Mobile: snap carousel with peek; desktop: 2-up grid -->
+		<ul
+			class="flex snap-x snap-mandatory gap-4 overflow-x-auto px-[18px] pb-2 min-[400px]:px-5 md:mx-auto md:grid md:max-w-[1000px] md:snap-none md:grid-cols-2 md:overflow-visible md:px-6 md:pb-0 lg:gap-6 lg:px-12"
+		>
+			{
+				doctors.map((doctor) => (
+					<li class="w-[82vw] max-w-[400px] shrink-0 snap-start rounded-2xl border border-border-light bg-off-white p-5 md:w-auto md:max-w-none md:shrink md:p-7">
+						<div class="flex items-start gap-4">
+							<!-- Initials treatment (swap for a real approved photo only) -->
+							<span
+								class:list={[
+									'flex size-16 shrink-0 items-center justify-center rounded-2xl font-heading text-xl font-bold md:size-20 md:text-2xl',
+									doctor.accent === 'teal'
+										? 'bg-primary-dark/10 text-primary-dark'
+										: 'bg-maternity/20 text-maternity-deep',
+								]}
+								aria-hidden="true"
+							>
+								{doctor.initials}
+							</span>
+							<div class="min-w-0">
+								<h3
+									class:list={[
+										'font-heading font-semibold',
+										doctor.pending
+											? 'text-base text-text-muted italic'
+											: 'text-lg text-text-dark md:text-xl',
+									]}
+								>
+									{doctor.name}
+								</h3>
+								<p class="mt-0.5 text-sm font-medium text-text-muted">{doctor.title}</p>
+								{doctor.experience && (
+									<p class="mt-0.5 text-[13px] text-text-muted">{doctor.experience}</p>
+								)}
+							</div>
+						</div>
+
+						<p class="mt-4 text-sm leading-relaxed text-text-body">{doctor.bio}</p>
+
+						<p class="mt-2 flex items-center gap-1.5 text-[13px] text-text-muted">
+							<svg
+								aria-hidden="true"
+								class="size-3.5"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="10" />
+								<polyline points="12 6 12 12 16 14" />
+							</svg>
+							{doctor.timings}
+						</p>
+
+						<a
+							href="#contact"
+							aria-label={`Book appointment: ${doctor.title}`}
+							class:list={[
+								'mt-4 inline-flex min-h-[44px] items-center justify-center rounded-[10px] px-5 py-2.5 text-sm font-semibold transition-colors duration-150',
+								doctor.accent === 'teal'
+									? 'bg-primary-dark text-white hover:bg-primary-deep'
+									: 'border border-maternity-deep text-maternity-deep hover:bg-maternity-soft',
+							]}
+						>
+							Book Appointment
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

@@ -1,0 +1,89 @@
+---
+// MaternityFeature — editorial composition, deliberately different from
+// OrthoFeature: image leads, the headline block overlaps the image's bottom
+// edge, then a 2×2 plain-text service grid (no cards) and one CTA.
+// Visual reuses the hero maternity asset in a wide crop until a dedicated
+// /images/maternity-mother-baby-visual.webp is generated.
+
+const features = [
+	{ title: 'Pregnancy Care', desc: 'Trimester-wise checkups and honest guidance.' },
+	{ title: 'Delivery Support', desc: 'Normal and caesarean deliveries, handled with care.' },
+	{ title: 'Postnatal Care', desc: 'Recovery support for mother after birth.' },
+	{ title: 'Newborn Guidance', desc: 'Feeding, vaccination and early-days advice.' },
+];
+---
+
+<section id="maternity" class="bg-cream" aria-labelledby="maternity-heading">
+	<div class="container-site section-pad lg:px-12">
+		<div class="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+			<!-- Image first, headline overlapping its bottom edge -->
+			<div class="lg:order-2">
+				<div class="overflow-hidden rounded-[20px] shadow-md">
+					<img
+						src="/images/hero-maternity-visual.webp"
+						alt=""
+						width="800"
+						height="1067"
+						loading="lazy"
+						class="aspect-[16/11] w-full bg-white object-cover object-[center_30%] lg:aspect-[4/5] lg:object-[center_45%]"
+					/>
+				</div>
+				<!-- Headline block pulled up over the image edge (mobile editorial overlap) -->
+				<div class="relative z-10 -mt-9 mr-7 rounded-tr-[20px] bg-cream pt-4 pr-4 lg:hidden">
+					<p class="label-caps text-maternity-deep">Maternity Department</p>
+					<h2 id="maternity-heading" class="mt-2 text-text-dark">
+						Cared For, Every Step to Motherhood
+					</h2>
+				</div>
+			</div>
+
+			<div class="lg:order-1">
+				<div class="hidden lg:block">
+					<p class="label-caps text-maternity-deep">Maternity Department</p>
+					<h2 class="mt-2 text-text-dark">Cared For, Every Step to Motherhood</h2>
+				</div>
+
+				<p class="mt-3 max-w-[520px] text-[15px] leading-relaxed text-text-muted sm:text-base lg:mt-4">
+					Pregnancy is personal. Our maternity team supports you with gentle, attentive care
+					&mdash; through pregnancy, delivery and your first days together.
+				</p>
+
+				<!-- 2×2 plain-text service grid — no cards, no borders -->
+				<dl class="mt-6 grid grid-cols-2 gap-x-5 gap-y-5 lg:mt-8 lg:gap-x-8">
+					{
+						features.map((f) => (
+							<div>
+								<dt class="flex items-center gap-2 text-[15px] font-semibold text-text-dark">
+									<span aria-hidden="true" class="size-1.5 shrink-0 rounded-full bg-maternity" />
+									{f.title}
+								</dt>
+								<dd class="mt-1 pl-3.5 text-[13px] leading-snug text-text-muted sm:text-sm">
+									{f.desc}
+								</dd>
+							</div>
+						))
+					}
+				</dl>
+
+				<a
+					href="#contact"
+					class="mt-6 inline-flex min-h-[44px] items-center gap-2 text-[15px] font-semibold text-maternity-deep transition-colors duration-150 hover:text-text-dark lg:text-base"
+				>
+					Talk to our maternity team
+					<svg
+						aria-hidden="true"
+						class="size-4"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M5 12h14M12 5l7 7-7 7" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

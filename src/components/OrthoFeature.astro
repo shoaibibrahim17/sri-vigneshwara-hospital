@@ -1,0 +1,136 @@
+---
+// OrthoFeature — editorial composition (no card-on-card):
+// eyebrow → heading/description → wide integrated visual → service list as
+// divided rows (3 visible on mobile, rest behind a "View all" disclosure) → CTA.
+// Visual reuses the hero knee asset in a wide crop until a dedicated
+// /images/orthopaedic-knee-visual.webp is generated.
+
+const services = [
+	{ title: 'Fracture Care', desc: 'Casting, fixation and follow-up until full union.' },
+	{ title: 'Joint Pain', desc: 'Diagnosis and relief for knee, hip and shoulder pain.' },
+	{ title: 'Trauma Care', desc: 'Prompt attention for accidents and sports injuries.' },
+	{ title: 'Mobility Support', desc: 'Braces, walkers and guidance for safe movement.' },
+	{ title: 'Rehabilitation', desc: 'Structured recovery plans to rebuild strength.' },
+];
+
+const visible = services.slice(0, 3);
+const rest = services.slice(3);
+---
+
+<section id="orthopaedics" class="bg-ice" aria-labelledby="ortho-heading">
+	<div class="container-site section-pad lg:px-12">
+		<div class="lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
+			<!-- Visual — integrated media panel (order 1 on desktop, mid-flow on mobile) -->
+			<div class="lg:order-1">
+				<p class="label-caps text-primary-mid lg:hidden">Orthopaedic Department</p>
+				<h2 id="ortho-heading" class="mt-2 text-text-dark lg:hidden">
+					Helping You Return to an Active Life
+				</h2>
+				<p class="mt-3 text-[15px] leading-relaxed text-text-muted sm:text-base lg:hidden">
+					From fractures to joint pain, our orthopaedic care covers diagnosis, treatment and
+					guided recovery.
+				</p>
+
+				<div class="mt-6 overflow-hidden rounded-[20px] shadow-md lg:mt-0">
+					<img
+						src="/images/hero-orthopaedic-visual.webp"
+						alt=""
+						width="800"
+						height="1067"
+						loading="lazy"
+						class="aspect-[16/10] w-full bg-white object-cover object-[center_42%] lg:aspect-[4/5]"
+					/>
+				</div>
+			</div>
+
+			<!-- Copy + service rows -->
+			<div class="lg:order-2">
+				<div class="hidden lg:block">
+					<p class="label-caps text-primary-mid">Orthopaedic Department</p>
+					<h2 class="mt-2 text-text-dark">Helping You Return to an Active Life</h2>
+					<p class="mt-3 max-w-[520px] text-base leading-relaxed text-text-muted">
+						From fractures to joint pain, our orthopaedic care covers diagnosis, treatment and
+						guided recovery.
+					</p>
+				</div>
+
+				<ul class="mt-6 divide-y divide-primary-dark/10 lg:mt-8">
+					{
+						visible.map((s) => (
+							<li class="flex gap-3 py-3.5">
+								<span aria-hidden="true" class="mt-2 size-1.5 shrink-0 rounded-full bg-primary-mid" />
+								<p class="text-[15px] leading-snug">
+									<strong class="font-semibold text-text-dark">{s.title}</strong>
+									<span class="text-text-muted"> — {s.desc}</span>
+								</p>
+							</li>
+						))
+					}
+					{
+						rest.map((s) => (
+							<li class="hidden gap-3 py-3.5 lg:flex">
+								<span aria-hidden="true" class="mt-2 size-1.5 shrink-0 rounded-full bg-primary-mid" />
+								<p class="text-[15px] leading-snug">
+									<strong class="font-semibold text-text-dark">{s.title}</strong>
+									<span class="text-text-muted"> — {s.desc}</span>
+								</p>
+							</li>
+						))
+					}
+				</ul>
+
+				<!-- Mobile-only disclosure for the remaining services -->
+				<details class="group border-t border-primary-dark/10 lg:hidden">
+					<summary class="flex min-h-[44px] cursor-pointer list-none items-center gap-1.5 py-2.5 text-sm font-semibold text-primary-mid [&::-webkit-details-marker]:hidden">
+						<span class="group-open:hidden">View all services</span>
+						<span class="hidden group-open:inline">Show fewer</span>
+						<svg
+							aria-hidden="true"
+							class="size-4 transition-transform duration-300 ease-out group-open:rotate-180"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="m6 9 6 6 6-6" />
+						</svg>
+					</summary>
+					<ul class="divide-y divide-primary-dark/10 border-t border-primary-dark/10">
+						{
+							rest.map((s) => (
+								<li class="flex gap-3 py-3.5">
+									<span aria-hidden="true" class="mt-2 size-1.5 shrink-0 rounded-full bg-primary-mid" />
+									<p class="text-[15px] leading-snug">
+										<strong class="font-semibold text-text-dark">{s.title}</strong>
+										<span class="text-text-muted"> — {s.desc}</span>
+									</p>
+								</li>
+							))
+						}
+					</ul>
+				</details>
+
+				<a
+					href="#contact"
+					class="mt-5 inline-flex min-h-[44px] items-center gap-2 text-[15px] font-semibold text-primary-mid transition-colors duration-150 hover:text-primary-dark lg:mt-6 lg:text-base"
+				>
+					Book a consultation
+					<svg
+						aria-hidden="true"
+						class="size-4"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M5 12h14M12 5l7 7-7 7" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

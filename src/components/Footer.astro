@@ -1,0 +1,91 @@
+---
+// Footer — compact mobile: contact block always visible, link groups as
+// two tight columns (no four stacked desktop columns); 4-column from lg:.
+// No overlap allowance needed — Contact no longer bleeds into the footer.
+
+const quickLinks = [
+	{ label: 'Home', href: '#home' },
+	{ label: 'Departments', href: '#departments' },
+	{ label: 'Doctors', href: '#doctors' },
+	{ label: 'Facilities', href: '#facilities' },
+	{ label: 'Contact', href: '#contact' },
+];
+
+const serviceLinks = [
+	{ label: 'Orthopaedics', href: '#orthopaedics' },
+	{ label: 'Maternity', href: '#maternity' },
+	{ label: 'Paediatrics', href: '#departments' },
+	{ label: 'Gynaecology', href: '#departments' },
+];
+
+const linkClass =
+	'text-[13px] text-white/70 no-underline transition-colors duration-150 hover:text-text-light hover:underline';
+---
+
+<footer class="bg-primary-deep">
+	<div class="container-site py-10 lg:px-12 lg:py-14">
+		<!-- Mobile: identity + contact, then two link columns side by side -->
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
+			<div class="lg:col-span-2">
+				<p class="font-heading text-base font-bold tracking-wide text-text-light">
+					SRI VIGNESHWARA
+				</p>
+				<p class="mt-0.5 text-[10px] tracking-[0.06em] text-white/60 uppercase">
+					Orthopaedic &amp; Maternity Hospital
+				</p>
+				<address class="mt-3 max-w-[340px] text-[13px] leading-relaxed text-white/70 not-italic">
+					Raviteja Hotel Lane, Vidya Nagar, Adilabad, Telangana 504001
+					<br />
+					<a href="tel:9849287515" class="font-semibold text-white/90 hover:text-white">
+						98492 87515
+					</a>
+				</address>
+			</div>
+
+			<nav aria-label="Quick links">
+				<h3 class="mb-3 text-xs font-semibold tracking-[0.05em] text-text-light uppercase">
+					Quick Links
+				</h3>
+				<ul class="space-y-1.5">
+					{
+						quickLinks.map((link) => (
+							<li>
+								<a href={link.href} class={linkClass}>
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<nav aria-label="Our services">
+				<h3 class="mb-3 text-xs font-semibold tracking-[0.05em] text-text-light uppercase">
+					Departments
+				</h3>
+				<ul class="space-y-1.5">
+					{
+						serviceLinks.map((link) => (
+							<li>
+								<a href={link.href} class={linkClass}>
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Bottom bar -->
+		<div class="mt-8 border-t border-white/10 pt-5 text-center lg:flex lg:items-center lg:justify-between lg:text-left">
+			<p class="text-xs text-white/70">
+				&copy; 2026 Sri Vigneshwara Hospital. All rights reserved.
+			</p>
+			<p class="mt-1.5 text-[11px] text-white/60 lg:mt-0">
+				This website is for informational purposes only. Not a substitute for professional
+				medical advice.
+			</p>
+		</div>
+	</div>
+</footer>

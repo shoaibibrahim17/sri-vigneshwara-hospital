@@ -1,0 +1,41 @@
+---
+// TrustStrip — compact information bar under the hero.
+// Two tight text rows on mobile (departments / practical info) separated by
+// dot dividers; single row on desktop. No dark panel, no horizontal scroll.
+
+const departments = ['Orthopaedics', 'Maternity', 'Paediatrics', 'Gynaecology'];
+---
+
+<div class="border-y border-border-light bg-white" aria-label="Quick access">
+	<div
+		class="container-site flex flex-col gap-1.5 py-3 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-12 lg:py-4"
+	>
+		<p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] font-medium text-text-body lg:text-sm">
+			{
+				departments.map((d, i) => (
+					<>
+						{i > 0 && (
+							<span aria-hidden="true" class="text-maternity">
+								&middot;
+							</span>
+						)}
+						<a href="#departments" class="transition-colors duration-150 hover:text-primary-mid">
+							{d}
+						</a>
+					</>
+				))
+			}
+		</p>
+
+		<p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-text-muted lg:text-sm">
+			<!-- UNVERIFIED: confirm emergency availability with client before launch -->
+			<span>Emergency support</span>
+			<span aria-hidden="true" class="text-maternity">&middot;</span>
+			<a href="tel:9849287515" class="font-semibold text-primary-dark transition-colors duration-150 hover:text-primary-mid">
+				98492 87515
+			</a>
+			<span aria-hidden="true" class="text-maternity">&middot;</span>
+			<span>Vidya Nagar, Adilabad</span>
+		</p>
+	</div>
+</div>
