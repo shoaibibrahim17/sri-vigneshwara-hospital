@@ -19,11 +19,15 @@ const serviceLinks = [
 ];
 
 const linkClass =
-	'text-[13px] text-white/70 no-underline transition-colors duration-150 hover:text-text-light hover:underline';
+	'text-[13px] text-white/70 no-underline transition-all duration-200 hover:translate-x-0.5 hover:text-text-light';
 ---
 
-<footer class="bg-primary-deep">
-	<div class="container-site py-10 lg:px-12 lg:py-14">
+<footer class="relative overflow-hidden border-t border-maternity/20 bg-primary-deep">
+	<svg aria-hidden="true" class="pointer-events-none absolute top-0 left-0 h-8 w-full" viewBox="0 0 1440 48" preserveAspectRatio="none">
+		<path d="M0 18 C260 42 430 2 720 18 C1000 34 1190 4 1440 20" fill="none" stroke="#E8A0B0" stroke-opacity="0.5" stroke-width="2" />
+		<path d="M0 27 C250 47 490 12 760 27 C1050 42 1230 15 1440 28" fill="none" stroke="#F8F9FA" stroke-opacity="0.1" stroke-width="1" />
+	</svg>
+	<div class="container-site pt-14 pb-10 lg:px-12 lg:pt-16 lg:pb-14">
 		<!-- Mobile: identity + contact, then two link columns side by side -->
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
 			<div class="lg:col-span-2">
@@ -78,7 +82,7 @@ const linkClass =
 		</div>
 
 		<!-- Bottom bar -->
-		<div class="mt-8 border-t border-white/10 pt-5 text-center lg:flex lg:items-center lg:justify-between lg:text-left">
+		<div class="mt-8 border-t border-white/15 pt-5 text-center lg:flex lg:items-center lg:justify-between lg:text-left">
 			<p class="text-xs text-white/70">
 				&copy; 2026 Sri Vigneshwara Hospital. All rights reserved.
 			</p>

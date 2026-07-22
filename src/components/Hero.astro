@@ -11,34 +11,22 @@ const directionsUrl =
 ---
 
 <section id="home" aria-label="Sri Vigneshwara Orthopaedic and Maternity Hospital, Adilabad">
-	<div class="relative overflow-hidden bg-off-white">
-		<!-- Flat tonal washes: ice left (ortho), cream right (maternity) -->
-		<div
-			aria-hidden="true"
-			class="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ice to-transparent"
-		>
-		</div>
-		<div
-			aria-hidden="true"
-			class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-cream to-transparent"
-		>
-		</div>
-
+	<div class="relative overflow-hidden bg-primary-dark pb-12 sm:pb-16 lg:pb-24">
 		<div class="container-site relative py-10 sm:py-14 lg:px-12 lg:py-20">
-			<div class="grid grid-cols-1 items-center gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+			<div class="grid grid-cols-1 items-center gap-9 lg:grid-cols-[0.94fr_1.06fr] lg:gap-10">
 				<!-- Copy — first in DOM: headline + CTAs land above the visuals on mobile -->
-				<div>
-					<p class="label-caps text-primary-mid">
+				<div class="hero-copy-enter">
+					<p class="label-caps text-maternity">
 						Sri Vigneshwara Orthopaedic &amp; Maternity Hospital
 					</p>
 
 					<h1
-						class="mt-3 max-w-[600px] font-heading text-[clamp(36px,9.5vw,44px)] leading-[1.05] font-bold tracking-[-0.02em] text-balance text-text-dark lg:text-[48px] lg:leading-[1.1]"
+						class="mt-3 max-w-[600px] font-heading text-[clamp(36px,9.5vw,44px)] leading-[1.05] font-bold tracking-[-0.02em] text-balance text-white lg:text-[52px] lg:leading-[1.06]"
 					>
 						Trusted Orthopaedic &amp; Maternity Care in Adilabad
 					</h1>
 
-					<p class="mt-4 max-w-[520px] text-[15px] leading-relaxed text-text-muted sm:text-base lg:text-lg">
+					<p class="mt-4 max-w-[520px] text-[15px] leading-relaxed text-white/75 sm:text-base lg:text-lg">
 						Specialist care for mobility, pregnancy, women&rsquo;s health and children &mdash;
 						delivered with compassion under one roof.
 					</p>
@@ -46,7 +34,7 @@ const directionsUrl =
 					<div class="mt-6 flex flex-col gap-2.5 sm:flex-row sm:gap-3">
 						<a
 							href="tel:9849287515"
-							class="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-[10px] bg-cta px-6 py-3 text-[15px] font-semibold tracking-[0.02em] text-text-dark transition-colors duration-150 hover:bg-cta-hover sm:w-auto lg:px-8 lg:text-base"
+							class="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-cta px-6 py-3 text-[15px] font-semibold tracking-[0.02em] text-text-dark transition-colors duration-150 hover:bg-cta-hover sm:w-auto lg:px-8 lg:text-base"
 						>
 							<svg
 								aria-hidden="true"
@@ -64,7 +52,7 @@ const directionsUrl =
 						</a>
 						<a
 							href="#contact"
-							class="inline-flex min-h-[48px] w-full items-center justify-center rounded-[10px] border border-primary-dark px-6 py-3 text-[15px] font-semibold tracking-[0.02em] text-primary-dark transition-colors duration-150 hover:bg-primary-dark hover:text-white sm:w-auto lg:px-8 lg:text-base"
+							class="inline-flex min-h-[48px] w-full items-center justify-center rounded-xl border border-white/45 px-6 py-3 text-[15px] font-semibold tracking-[0.02em] text-white transition-colors duration-150 hover:bg-white hover:text-primary-dark sm:w-auto lg:px-8 lg:text-base"
 						>
 							Book Appointment
 						</a>
@@ -74,7 +62,7 @@ const directionsUrl =
 						href={directionsUrl}
 						target="_blank"
 						rel="noopener"
-						class="mt-2 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-mid transition-colors duration-150 hover:text-primary-dark"
+						class="mt-2 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors duration-150 hover:text-white"
 					>
 						<svg
 							aria-hidden="true"
@@ -93,52 +81,23 @@ const directionsUrl =
 					</a>
 				</div>
 
-				<!-- Shared visual canvas: ortho behind/high-left, maternity in front/low-right -->
-				<div
-					aria-hidden="true"
-					class="relative mx-auto h-[340px] w-full max-w-[380px] sm:h-[400px] sm:max-w-[440px] lg:h-[540px] lg:max-w-none"
-				>
-					<!-- Ortho panel (back layer) -->
-					<div class="absolute top-0 left-0 w-[55%]">
-						<div class="overflow-hidden rounded-[20px] bg-white shadow-md">
-							<img
-								src="/images/hero-orthopaedic-visual.webp"
-								alt=""
-								width="800"
-								height="1067"
-								fetchpriority="high"
-								class="aspect-[3/4] h-auto w-full object-cover object-center"
-							/>
-						</div>
-						<span
-							class="absolute top-3 left-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold whitespace-nowrap text-primary-dark shadow-sm sm:text-[11px]"
-						>
-							Orthopaedic Care
-						</span>
+				<!-- One editorial illustration field: anatomy behind, maternity in front. -->
+				<div class="hero-visual-enter relative mx-auto h-[310px] w-full max-w-[390px] sm:h-[390px] sm:max-w-[470px] lg:h-[540px] lg:max-w-[610px]">
+					<div class="absolute top-0 left-0 h-[86%] w-[58%] overflow-hidden rounded-t-[48%] rounded-b-[44%] bg-ice shadow-[0_18px_45px_rgba(4,31,30,0.18)]">
+						<img src="/images/hero-orthopaedic-visual.webp" alt="Orthopaedic knee and spine care illustration" width="800" height="1067" fetchpriority="high" class="hero-ortho-enter h-full w-full object-cover object-[center_32%] opacity-95" />
 					</div>
-
-					<!-- Maternity arch (front layer, overlapping) -->
-					<div class="absolute right-0 bottom-0 z-10 w-[52%]">
-						<div
-							class="overflow-hidden rounded-t-full rounded-b-[20px] bg-white shadow-lg ring-4 ring-off-white"
-						>
-							<img
-								src="/images/hero-maternity-visual.webp"
-								alt=""
-								width="800"
-								height="1067"
-								fetchpriority="high"
-								class="aspect-[3/4] h-auto w-full object-cover object-[center_65%]"
-							/>
-						</div>
-						<span
-							class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold whitespace-nowrap text-maternity-deep shadow-sm sm:text-[11px]"
-						>
-							Maternity Care
-						</span>
+					<div class="absolute right-0 bottom-0 z-10 h-[78%] w-[58%] overflow-hidden rounded-t-full rounded-b-[44%] bg-maternity-soft shadow-[0_20px_48px_rgba(4,31,30,0.2)] ring-[3px] ring-white/20">
+						<img src="/images/hero-maternity-visual.webp" alt="Mother and newborn maternity care illustration" width="800" height="1067" loading="eager" decoding="async" class="hero-maternity-enter h-full w-full object-cover object-[center_42%]" />
+					</div>
+					<div class="absolute top-[3%] right-0 z-20 border-l-2 border-maternity pl-3 text-white">
+						<p class="text-[10px] font-semibold tracking-[0.12em] uppercase sm:text-xs">Two specialties</p>
+						<p class="mt-0.5 font-heading text-lg leading-none sm:text-xl">One trusted hospital</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<svg aria-hidden="true" class="pointer-events-none absolute right-0 bottom-[-1px] h-10 w-full sm:h-14 lg:h-20" viewBox="0 0 1440 120" preserveAspectRatio="none">
+			<path fill="#ffffff" d="M0,72 C220,112 418,16 676,48 C930,80 1102,132 1440,48 L1440,120 L0,120 Z" />
+		</svg>
 	</div>
 </section>
