@@ -503,6 +503,18 @@
 }
 
 
+.hero-title {
+    font-family: var(--font-ui);
+    text-wrap: pretty;
+}
+
+.hero-title span {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    letter-spacing: -0.035em;
+}
+
 /* Art-directed hero ground: one restrained atmospheric surface, not separate cards. */
 .hero-poster {
     background:
