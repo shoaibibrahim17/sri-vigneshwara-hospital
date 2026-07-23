@@ -64,15 +64,15 @@ const faqs: Faq[] = [
 			</div>
 
 			<!-- Right: accordion -->
-			<div class="divide-y divide-border-light border-y border-border-light">
+			<div class="space-y-2.5">
 				{
 					faqs.map((faq) => (
-						<details class="group py-1">
-							<summary class="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 py-3 text-base font-semibold text-text-dark [&::-webkit-details-marker]:hidden">
+						<details name="hospital-faq" class="faq-item group overflow-hidden rounded-[16px] border border-black/[0.06] bg-off-white transition-shadow duration-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+							<summary class="flex min-h-[54px] cursor-pointer list-none items-center justify-between gap-4 px-4 py-3.5 text-[15px] font-semibold text-text-dark transition-colors duration-150 hover:bg-ice/70 focus-visible:bg-ice/70 sm:text-base [&::-webkit-details-marker]:hidden">
 								{faq.q}
 								<svg
 									aria-hidden="true"
-									class="size-5 shrink-0 text-primary-mid transition-transform duration-300 ease-out group-open:rotate-45"
+									class="size-7 shrink-0 rounded-full bg-white p-1.5 text-primary-mid ring-1 ring-black/[0.06] transition-transform duration-300 ease-out group-open:rotate-45"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -82,7 +82,7 @@ const faqs: Faq[] = [
 									<path d="M12 5v14M5 12h14" />
 								</svg>
 							</summary>
-							<p class="pr-9 pb-4 text-sm leading-relaxed text-text-muted">{faq.a}</p>
+							<div class="faq-answer"><div><p class="px-4 pr-12 pb-4 text-sm leading-relaxed text-text-muted">{faq.a}</p></div></div>
 						</details>
 					))
 				}

@@ -2,7 +2,7 @@
 // Departments — compact 2×2 navigation grid (4-up on desktop).
 // Tiles are navigation, not content containers: icon, title, one line,
 // arrow. Detailed service lists live in the dedicated feature sections.
-// Alternating soft teal / blush tinted backgrounds; no borders or shadows.
+// Alternating soft teal / blush backgrounds with the shared premium card treatment.
 
 interface Department {
 	title: string;
@@ -67,7 +67,7 @@ const departments: Department[] = [
 						<a
 							href={d.href}
 							class:list={[
-								'group flex h-full min-h-[156px] flex-col rounded-xl p-3 transition-colors duration-150 sm:p-4 lg:min-h-[184px]',
+								'group flex h-full min-h-[156px] flex-col rounded-[16px] border border-black/[0.06] p-3 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:p-4 lg:min-h-[184px]',
 								d.accent === 'teal' ? 'bg-ice hover:bg-primary-mid/15' : 'bg-maternity-soft hover:bg-maternity/20',
 							]}
 						>
