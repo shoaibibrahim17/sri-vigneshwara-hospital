@@ -1,6 +1,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@font-face {
+    font-family: "Newsreader";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("/fonts/newsreader-latin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Instrument Sans";
+    font-style: normal;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url("/fonts/instrument-sans-latin.woff2") format("woff2");
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,10 +26,12 @@
    Design system tokens — Tailwind v4 CSS-first config
    ============================================================ */
 @theme {
-    /* Fonts (loaded via Google Fonts in Layout.astro) */
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-numbers: 'Space Grotesk', 'Inter', sans-serif;
+    /* Self-hosted editorial typography */
+    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-ui: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-heading: var(--font-display);
+    --font-sans: var(--font-ui);
+    --font-numbers: var(--font-ui);
 
     /* Brand colors */
     --color-primary-dark: #0F4C4B;   /* header, footer, dark sections, ortho accents */
@@ -146,32 +165,36 @@
         margin: 0;
         background-color: var(--color-off-white);
         color: var(--color-text-body);
-        font-family: var(--font-sans);
+        font-family: var(--font-ui);
         font-size: 16px;
-        line-height: 1.6;
+        line-height: 1.62;
+        letter-spacing: -0.003em;
+        font-synthesis: none;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
+        font-optical-sizing: auto;
     }
 
-    /* H1/H2: Playfair Display. H3+: Inter (per design system). */
+    /* Display hierarchy: restrained Newsreader; UI hierarchy: Instrument Sans. */
     h1,
     h2 {
-        font-family: var(--font-heading);
+        font-family: var(--font-display);
         color: var(--color-text-dark);
     }
 
     h1 {
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
+        font-weight: 500;
+        font-size: clamp(2.55rem, 11vw, 3rem);
+        line-height: 0.99;
+        letter-spacing: -0.035em;
+        text-wrap: balance;
     }
 
     h2 {
-        font-weight: 600;
-        font-size: 26px;
-        line-height: 1.18;
-        letter-spacing: -0.01em;
+        font-weight: 500;
+        font-size: clamp(1.85rem, 7vw, 2.1rem);
+        line-height: 1.06;
+        letter-spacing: -0.025em;
         text-wrap: balance;
     }
 
@@ -179,7 +202,7 @@
     h4,
     h5,
     h6 {
-        font-family: var(--font-sans);
+        font-family: var(--font-ui);
         font-weight: 600;
         color: var(--color-text-dark);
     }
@@ -195,8 +218,9 @@
     }
 
     @media (min-width: 768px) {
-        h1 { font-size: 48px; }
-        h2 { font-size: 36px; }
+        body { font-size: 17px; line-height: 1.64; }
+        h1 { font-size: clamp(3.5rem, 5vw, 4.65rem); }
+        h2 { font-size: clamp(2.6rem, 4vw, 3.25rem); }
         h3 { font-size: 24px; }
         h4 { font-size: 18px; }
     }
@@ -257,9 +281,10 @@
 }
 
 @utility stat-number {
-    /* Space Grotesk stats: 36px mobile / 48px desktop */
+    /* Instrument Sans numerals: compact, clinical and tabular. */
     font-family: var(--font-numbers);
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
     font-size: 36px;
     line-height: 1;
     letter-spacing: -0.02em;
@@ -338,7 +363,7 @@
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 11px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
 
     @media (min-width: 768px) {

@@ -60,7 +60,7 @@ const doctors: Doctor[] = [
 							<!-- Initials treatment (swap for a real approved photo only) -->
 							<span
 								class:list={[
-									'flex size-16 shrink-0 items-center justify-center rounded-2xl font-heading text-xl font-bold md:size-20 md:text-2xl',
+									'flex size-16 shrink-0 items-center justify-center rounded-2xl font-heading text-xl font-semibold md:size-20 md:text-2xl',
 									doctor.accent === 'teal'
 										? 'bg-primary-dark/10 text-primary-dark'
 										: 'bg-maternity/20 text-maternity-deep',
@@ -74,7 +74,7 @@ const doctors: Doctor[] = [
 									class:list={[
 										'font-heading font-semibold',
 										doctor.pending
-											? 'text-base text-text-muted italic'
+											? 'text-base text-text-muted'
 											: 'text-lg text-text-dark md:text-xl',
 									]}
 								>
