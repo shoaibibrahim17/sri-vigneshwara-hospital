@@ -501,3 +501,30 @@
         transition: none;
     }
 }
+
+
+/* Art-directed hero ground: one restrained atmospheric surface, not separate cards. */
+.hero-poster {
+    background:
+        linear-gradient(132deg, #f8fbfa 0%, #eef7f7 48%, #eaf5f6 72%, #fbf4ef 100%);
+}
+
+@media (max-width: 767px) {
+    [data-whatsapp-button] {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(10px) scale(0.94);
+    }
+
+    body.hero-whatsapp-visible [data-whatsapp-button] {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+
+    body.mobile-actions-visible [data-whatsapp-button] {
+        transform: translateY(-76px) scale(1);
+    }
+}
