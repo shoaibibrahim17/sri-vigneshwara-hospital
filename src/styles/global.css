@@ -503,22 +503,118 @@
 }
 
 
-.hero-title {
+.hero-canvas {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(128deg, #f8fbfa 0%, #edf7f7 42%, #e8f3f5 72%, #fbf1ef 100%);
+}
+
+.hero-canvas__inner {
+    position: relative;
+    min-height: 660px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 20;
+}
+
+.hero-eyebrow {
+    margin: 0;
+    color: var(--color-primary-mid);
     font-family: var(--font-ui);
-    text-wrap: pretty;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-.hero-title span {
-    font-family: var(--font-display);
-    font-weight: 500;
-    color: var(--color-primary-dark);
-    letter-spacing: -0.035em;
+.hero-eyebrow span,
+.hero-eyebrow small { display: block; font: inherit; }
+.hero-eyebrow small { margin-top: 1px; font-size: 9px; letter-spacing: 0.1em; opacity: 0.82; }
+
+.hero-title {
+    max-width: 350px;
+    margin: 13px 0 0;
+    color: var(--color-text-dark);
+    font-family: var(--font-ui);
+    font-size: clamp(42px, 11.8vw, 46px);
+    font-weight: 600;
+    line-height: 0.91;
+    letter-spacing: -0.046em;
+    text-wrap: balance;
 }
 
-/* Art-directed hero ground: one restrained atmospheric surface, not separate cards. */
-.hero-poster {
-    background:
-        linear-gradient(132deg, #f8fbfa 0%, #eef7f7 48%, #eaf5f6 72%, #fbf4ef 100%);
+.hero-title__line {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+}
+
+.hero-title__line--dark { color: #17232a; }
+.hero-title__line--teal { color: #0f615e; }
+.hero-title__line--rose { color: #a85e70; }
+
+.hero-summary {
+    position: relative;
+    z-index: 20;
+    max-width: 205px;
+    margin: 18px 0 0;
+    color: #596466;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 1.48;
+    letter-spacing: -0.012em;
+}
+
+.hero-visual { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+.hero-ortho { position: absolute; top: 272px; right: -8px; width: 200px; height: 292px; overflow: hidden; }
+.hero-ortho img { width: 100%; height: 100%; object-fit: cover; object-position: center 29%; mix-blend-mode: multiply; }
+.hero-maternity { position: absolute; top: 420px; right: 0; z-index: 2; width: 148px; height: 198px; overflow: hidden; border-radius: 74px 74px 24px 24px; background: rgba(251,243,238,.74); box-shadow: 0 14px 32px rgba(15,76,75,.07); }
+.hero-maternity img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; mix-blend-mode: multiply; }
+.hero-label { position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 6px; max-width: 110px; padding: 7px 9px; border: 1px solid rgba(15,76,75,.08); border-radius: 10px; background: rgba(255,255,255,.94); box-shadow: 0 8px 22px rgba(15,76,75,.06); color: var(--color-primary-dark); font-size: 10px; font-weight: 600; line-height: 1.15; }
+.hero-label svg { width: 14px; height: 14px; flex: none; }
+.hero-label--ortho { top: 350px; right: 122px; }
+.hero-label--maternity { top: 503px; right: 105px; color: var(--color-maternity-deep); }
+
+.hero-actions { position: absolute; left: 18px; bottom: 27px; z-index: 30; display: grid; width: 166px; gap: 8px; }
+.hero-action { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 7px; padding: 10px 13px; border-radius: 11px; font-family: var(--font-ui); font-size: 13px; font-weight: 600; line-height: 1.1; }
+.hero-action svg, .hero-directions svg { width: 16px; height: 16px; flex: none; }
+.hero-action--call { background: var(--color-cta); color: var(--color-text-dark); }
+.hero-action--call:hover { background: var(--color-cta-hover); }
+.hero-action--book { min-height: 44px; border: 1px solid rgba(15,76,75,.55); background: rgba(255,255,255,.45); color: var(--color-primary-dark); }
+.hero-directions { display: inline-flex; min-height: 36px; align-items: center; gap: 6px; padding-inline: 3px; color: var(--color-primary-mid); font-size: 12px; font-weight: 600; }
+
+@media (min-width: 400px) and (max-width: 767px) {
+    .hero-actions { left: 20px; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .hero-canvas__inner { min-height: 650px; padding-top: 40px; }
+    .hero-title { max-width: 470px; font-size: 56px; }
+    .hero-summary { max-width: 290px; font-size: 16px; }
+    .hero-ortho { top: 165px; right: 32px; width: 270px; height: 390px; }
+    .hero-maternity { top: 375px; right: 8px; width: 190px; height: 250px; }
+    .hero-label--ortho { top: 270px; right: 245px; }
+    .hero-label--maternity { top: 500px; right: 160px; }
+    .hero-actions { left: 24px; bottom: 58px; width: 188px; }
+}
+
+@media (min-width: 1024px) {
+    .hero-canvas__inner { min-height: 660px; padding: 80px 48px 64px; }
+    .hero-title { max-width: 620px; margin-top: 18px; font-size: clamp(61px,5.4vw,77px); line-height: .92; }
+    .hero-summary { max-width: 440px; margin-top: 22px; font-size: 17px; }
+    .hero-ortho { top: 38px; right: 118px; width: 410px; height: 550px; }
+    .hero-maternity { top: 230px; right: 0; width: 285px; height: 380px; border-radius: 145px 145px 42px 42px; }
+    .hero-label { font-size: 11px; padding: 9px 11px; }
+    .hero-label--ortho { top: 155px; right: 480px; }
+    .hero-label--maternity { top: 430px; right: 260px; }
+    .hero-actions { left: 48px; bottom: 72px; display: flex; width: auto; flex-wrap: wrap; }
+    .hero-action { min-width: 166px; font-size: 14px; }
+    .hero-directions { width: 100%; }
 }
 
 @media (max-width: 767px) {
